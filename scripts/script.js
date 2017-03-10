@@ -1,27 +1,30 @@
 (function(global) {
 
-  var first = document.getElementById('header-1');
-  var content = document.getElementById('content-1');
-  content.style.display = "none";
+  var headers = document.getElementsByClassName('header-list');
+  var contents = document.getElementsByClassName('content');
+  var arr = [];
+  var j;
+  arr.push.apply(arr,headers);
+  console.log(headers);
 
-  first.onclick = function(event) {
-    if(content.style.display == "block") {
-      content.style.display = "none"
-    } else {
-      content.style.display = "block";
+  var collapse = function (index) {
+    for(j = 0; j < contents.length; j++) {
+      if(contents[j].style.display == 'block' &&  j!=index) {
+        contents[j].style.display = 'none';
+      }
     }
   };
 
-  var second = document.getElementById('header-2');
-  var content_2 = document.getElementById('content-2');
-  content_2.style.display = "none";
+  arr.forEach(function(item, i, arr) {
+    item.onclick = function(event) {
+      //установить display none
+      if(contents[i].style.display == 'block') {
+        contents[i].style.display = 'none';
+      } else {
+        contents[i].style.display = 'block';
+      }
 
-  second.onclick = function(event) {
-    if(content_2.style.display == "block") {
-      content_2.style.display = "none"
-    } else {
-      content_2.style.display = "block";
-    }
-  };
-
+      collapse(i);
+    };
+  });
 })(this);
