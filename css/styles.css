@@ -1,7 +1,57 @@
 body {
-
+  text-align: center;
 }
 
+/* Весь список */
+.main-list {
+  width: 100%;
+  margin: 0;
+}
+
+
+/* Блок заголовок пункта списка */
+.header-list {
+  user-select: none;
+  padding: 10px;
+  margin-top: 5px;
+  background: #696969; /* Для старых браузров */
+  background: linear-gradient(to top, #696969, #fff);
+  padding: 10px;
+  border: 1px solid #333;
+  box-sizing: content-box;
+}
+
+/* После наведения */
+.header-list:hover {
+  background: linear-gradient(to bottom, #696969, #fff);
+}
+
+
+/* Содержимое пункта списка */
 .content {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+  background: #DCDCDC;
+}
+
+/*  */
+p {
+  margin: 0;
+  padding: 6px;
+}
+
+p:hover {
+ background: #F0FFF0;
+}
+
+@media (min-width: 500px) {
+  .main-list {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) {
+
 }
